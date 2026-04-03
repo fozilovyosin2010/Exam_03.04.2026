@@ -20,7 +20,6 @@ class Header extends Component {
       i18n.changeLanguage(e.target.value);
       this.setState({ lng: e.target.value });
     };
-    // [lng, setLng] = useState("en");
 
     return (
       <div className="header">

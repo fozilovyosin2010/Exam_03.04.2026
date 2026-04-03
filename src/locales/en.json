@@ -16,5 +16,16 @@
     "stats": "Stats",
     "search": "Search Art Work / Creator",
     "profile": "Profile"
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Term & Conditions",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "weekly": {
+    "title": "Weekly - Top NFT",
+    "currentBid": "Current bid",
+    "btn": "Place Bid"
   }
 }
