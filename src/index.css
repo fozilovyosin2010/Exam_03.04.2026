@@ -4,3 +4,9 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}

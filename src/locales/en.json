@@ -1,3 +1,20 @@
 {
-  "t1": "hello"
+  "hero": {
+    "title": "Discover And Create NFTs",
+    "desc": "Discover, create and sell NFTs on our NFT marketplace with over thousands of NFTs and get a $20 bonus.",
+    "btnExplore": "Explore More",
+    "btnCreate": "Create NFT",
+    "stats1": "Art Works",
+    "stats2": "Creators",
+    "stats3": "Collections"
+  },
+
+  "header": {
+    "discover": "Discover",
+    "creators": "Creators",
+    "sell": "Sell",
+    "stats": "Stats",
+    "search": "Search Art Work / Creator",
+    "profile": "Profile"
+  }
 }
