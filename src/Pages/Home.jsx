@@ -4,6 +4,7 @@ import React, {
   useMemo,
   useReducer,
   useRef,
+  useState,
 } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -355,6 +356,20 @@ const Home = () => {
     "Чӣ тавр ман метавонам дар платформаи шумо NFT харам?",
   ];
 
+  const [openInfo, setOpenInfo] = React.useState(false);
+
+  const [objInfo, setObjInfo] = useState(null);
+
+  const handleClickOpenInfo = (elem) => {
+    setOpenInfo(true);
+
+    setObjInfo(elem);
+  };
+
+  const handleCloseInfo = () => {
+    setOpenInfo(false);
+  };
+
   return (
     <div>
       <section className="relative max-w-[1440px] pl-[20px] m-[0_auto] mr-0 py-10">
@@ -547,8 +562,7 @@ const Home = () => {
         </div>
         <div className="grid max-md:grid-cols-1 grid-cols-4 gap-[50px] px-[20px]">
           {state.data.map((item) => (
-            <Link
-              to={`/discover`}
+            <div
               key={item.id}
               className="w-[260px] max-lg:w-[180px] max-md:w-full"
             >
@@ -561,8 +575,9 @@ const Home = () => {
                 todo={true}
                 btnDel={handleDel}
                 btnEdit={handleClickOpenEdit}
+                btnInfo={handleClickOpenInfo}
               />
-            </Link>
+            </div>
           ))}
         </div>
       </section>
@@ -735,6 +750,41 @@ const Home = () => {
           </Button>
         </DialogActions>
       </Dialog>
+
+      {/* info modal */}
+
+      <Dialog
+        open={openInfo}
+        onClose={handleCloseInfo}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">Info modal</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <Box
+              id={objInfo?.id}
+              img={objInfo?.img}
+              time={objInfo?.time}
+              name={objInfo?.name}
+              price={objInfo?.price}
+            />
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            variant="contained"
+            sx={{ bgcolor: "red" }}
+            onClick={handleCloseInfo}
+          >
+            Disagree
+          </Button>
+          <Button variant="contained" onClick={handleCloseInfo} autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
+
       {/* edit modal */}
       <Dialog open={openEdit} onClose={handleCloseEdit}>
         <DialogTitle>Edit</DialogTitle>

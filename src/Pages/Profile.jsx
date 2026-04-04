@@ -70,7 +70,6 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* 1. Header / Cover Image */}
       <div
         style={{
           backgroundImage: `url(${profB})`,
@@ -108,7 +107,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* 3. Discover Section */}
         <div className="mt-16">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl font-bold">{t.discover}</h2>
@@ -141,7 +139,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <button className="w-full mt-4 py-3 bg-black text-white rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-all">
-                  {t.bid}
+                  {t("profile.bid")}
                 </button>
               </div>
             ))}

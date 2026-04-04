@@ -7,26 +7,25 @@ import cardImg3 from "../img/cardImg3.png";
 import cardImg4 from "../img/cardImg4.png";
 import cardImg5 from "../img/cardImg5.png";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 const Box = (item) => {
   const { t } = useTranslation();
 
-  const { btnDel, btnEdit } = item;
+  const { btnDel, btnEdit, btnInfo } = item;
 
   console.log("child");
 
   return (
     <div className="bg-white p-3 rounded-2xl shadow-sm">
-      <div className="relative mb-3">
+      <Link to={`/discover`} className="relative mb-3">
         <img src={item.img} alt="" className="rounded-xl w-full h-[274px]" />
 
         <span className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">
           {`${item.time[0]}h ${item.time[1]}m`}
         </span>
-      </div>
-
+      </Link>
       <h3 className="font-semibold mb-2">{item.name}</h3>
-
       <div className="flex items-center justify-between">
         <p className="text-sm text-gray-400 truncate">
           {t("weekly.currentBid")}
@@ -36,7 +35,6 @@ const Box = (item) => {
           {t("weekly.btn")}
         </button>
       </div>
-
       <div className="flex justify-between pt-2">
         <p className="text-sm mt-1">♦ {item.price}</p>
         {item.todo ? (
@@ -52,7 +50,7 @@ const Box = (item) => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-trash-icon lucide-trash"
+                className="lucide lucide-trash-icon lucide-trash w-[20px]"
               >
                 <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
                 <path d="M3 6h18" />
@@ -70,7 +68,7 @@ const Box = (item) => {
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-pencil-ruler-icon lucide-pencil-ruler"
+                className="lucide lucide-pencil-ruler-icon lucide-pencil-ruler w-[20px]"
               >
                 <path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13" />
                 <path d="m8 6 2-2" />
@@ -78,6 +76,24 @@ const Box = (item) => {
                 <path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17" />
                 <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
                 <path d="m15 5 4 4" />
+              </svg>
+            </button>
+            <button onClick={() => btnInfo(item)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-info-icon lucide-info"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4" />
+                <path d="M12 8h.01" />
               </svg>
             </button>
           </div>
