@@ -31,6 +31,7 @@ import Button from "@mui/material/Button";
 
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
+import { Link } from "react-router";
 
 const nftData = [
   {
@@ -323,8 +324,6 @@ const Home = () => {
     handleCloseEdit();
   };
 
-  console.log("parent");
-
   return (
     <div>
       <section className="relative max-w-[1440px] pl-[20px] m-[0_auto] mr-0 py-10">
@@ -515,21 +514,24 @@ const Home = () => {
             <AddIcon />
           </IconButton>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+        <div className="grid max-md:grid-cols-1 grid-cols-4 gap-[50px] px-[20px]">
           {state.data.map((item) => (
-            <div key={item.id} className="!w-[260px]">
+            <Link
+              to={`/discover`}
+              key={item.id}
+              className="w-[260px] max-lg:w-[180px] max-md:w-full"
+            >
               <Box
                 id={item.id}
                 img={item.img}
                 time={item.time}
                 name={item.name}
                 price={item.price}
-                // {...item}
                 todo={true}
                 btnDel={handleDel}
                 btnEdit={handleClickOpenEdit}
               />
-            </div>
+            </Link>
           ))}
         </div>
       </section>
