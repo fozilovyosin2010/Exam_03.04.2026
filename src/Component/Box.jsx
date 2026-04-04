@@ -7,24 +7,32 @@ import cardImg3 from "../img/cardImg3.png";
 import cardImg4 from "../img/cardImg4.png";
 import cardImg5 from "../img/cardImg5.png";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const Box = (item) => {
   const { t } = useTranslation();
 
   const { btnDel, btnEdit, btnInfo } = item;
 
-  console.log("child");
-
   return (
     <div className="bg-white p-3 rounded-2xl shadow-sm">
-      <Link to={`/discover`} className="relative mb-3">
-        <img src={item.img} alt="" className="rounded-xl w-full h-[274px]" />
+      {item.tLink ? (
+        <Link to={"/discover"} className="relative mb-3">
+          <img src={item.img} alt="" className="rounded-xl w-full h-[274px]" />
 
-        <span className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">
-          {`${item.time[0]}h ${item.time[1]}m`}
-        </span>
-      </Link>
+          <span className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">
+            {`${item.time[0]}h ${item.time[1]}m`}
+          </span>
+        </Link>
+      ) : (
+        <div className="relative mb-3">
+          <img src={item.img} alt="" className="rounded-xl w-full h-[274px]" />
+
+          <span className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">
+            {`${item.time[0]}h ${item.time[1]}m`}
+          </span>
+        </div>
+      )}
       <h3 className="font-semibold mb-2">{item.name}</h3>
       <div className="flex items-center justify-between">
         <p className="text-sm text-gray-400 truncate">

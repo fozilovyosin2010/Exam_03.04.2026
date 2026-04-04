@@ -567,6 +567,7 @@ const Home = () => {
               className="w-[260px] max-lg:w-[180px] max-md:w-full"
             >
               <Box
+                tLink={true}
                 id={item.id}
                 img={item.img}
                 time={item.time}
