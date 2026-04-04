@@ -33,6 +33,13 @@ import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router";
 
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import i18next from "i18next";
+
 const nftData = [
   {
     id: 1,
@@ -324,6 +331,30 @@ const Home = () => {
     handleCloseEdit();
   };
 
+  const acList = [
+    "What is an NFT?",
+    "What can I use NFTs for?",
+    "What is the difference between an NFT and cryptocurrency?",
+    "How much is an NFT worth?",
+    "How do I purchase an NFT on your platform ?",
+  ];
+
+  const acListRu = [
+    "Что такое NFT?",
+    "Для чего можно использовать NFT?",
+    "В чем разница между NFT и криптовалютой?",
+    "Сколько стоит NFT?",
+    "Как купить NFT на вашей платформе?",
+  ];
+
+  const acListTj = [
+    "NFT чист?",
+    "Ман NFT-ро барои чӣ истифода бурда метавонам?",
+    "Фарқи байни NFT ва криптовалюта дар чист?",
+    "Арзиши NFT чанд аст?",
+    "Чӣ тавр ман метавонам дар платформаи шумо NFT харам?",
+  ];
+
   return (
     <div>
       <section className="relative max-w-[1440px] pl-[20px] m-[0_auto] mr-0 py-10">
@@ -533,6 +564,112 @@ const Home = () => {
               />
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="sec p-[40px_20px]">
+        <div className="">
+          <div className="flex flex-col justify-between gap-4 items-center ">
+            <div className="flex flex-col justify-center items-center text-[50px] font-[700]">
+              <div>{t("com.t1")}</div>
+              <div className="text-gray-400 text-[70px]">{t("com.t2")}</div>
+            </div>
+            <button className="bg-[#000] text-[#fff] p-[20px_15px] rounded-2xl">
+              {t("com.btn")}
+            </button>
+          </div>
+          <div className="accourdion">
+            <div>
+              {i18next.language == "en"
+                ? acList.map((e, i) => {
+                    return (
+                      <Accordion key={i}>
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel1-content"
+                          id="panel1-header"
+                        >
+                          <Typography component="span">{e}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <Typography>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Suspendisse malesuada lacus ex, sit amet
+                            blandit leo lobortis eget.
+                          </Typography>
+                        </AccordionDetails>
+                      </Accordion>
+                    );
+                  })
+                : i18next.language == "ru"
+                  ? acListRu.map((e, i) => {
+                      return (
+                        <Accordion key={i}>
+                          <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1-content"
+                            id="panel1-header"
+                          >
+                            <Typography component="span">{e}</Typography>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <Typography>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit. Suspendisse malesuada lacus ex, sit amet
+                              blandit leo lobortis eget.
+                            </Typography>
+                          </AccordionDetails>
+                        </Accordion>
+                      );
+                    })
+                  : acListTj.map((e, i) => {
+                      return (
+                        <Accordion key={i}>
+                          <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1-content"
+                            id="panel1-header"
+                          >
+                            <Typography component="span">{e}</Typography>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <Typography>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit. Suspendisse malesuada lacus ex, sit amet
+                              blandit leo lobortis eget.
+                            </Typography>
+                          </AccordionDetails>
+                        </Accordion>
+                      );
+                    })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec p-[40px_20px] max-sm:pb-[180px]">
+        <div className="bg-[#000] text-[#fff] p-[40px_20px] rounded-2xl flex justify-between max-sm:flex-col max-md:items-center relative">
+          <div className="block1 flex flex-col justify-between py-[30px]">
+            <div>
+              <h1 className="text-[40px] font-[700]">{t("sec.t1")}</h1>
+              <div className="text-gray-500 text-[30px] font-[500] max-md:text-[16px]">
+                {t("sec.t2")}
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <button className="p-[8px_16px] w-full rounded-[15px] bg-[#fff] text-black">
+                {t("sec.btn2")}
+              </button>
+              <button className="p-[8px_16px] w-full rounded-[15px] bg-[#000] border-[#fff] border">
+                {t("sec.btn1")}
+              </button>
+            </div>
+          </div>
+          <img
+            src={img1}
+            alt=""
+            className="max-w-[390px] max-md:w-[290px] max-sm:absolute max-sm:w-[190px] bottom-[-150px]"
+          />
         </div>
       </section>
 

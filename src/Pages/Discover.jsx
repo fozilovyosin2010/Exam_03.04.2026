@@ -1,47 +1,124 @@
 import React, { useState } from "react";
 
-const NFTCard = ({ img, name, price }) => (
-  <div className="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition group">
-    <div className="aspect-square rounded-xl overflow-hidden mb-3 bg-gray-100">
-      <img
-        src={img}
-        alt={name}
-        className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-      />
-    </div>
-    <div className="flex justify-between items-center px-1">
-      <div>
-        <p className="font-bold text-sm text-zinc-900">{name}</p>
-        <p className="text-[10px] text-gray-400 font-medium">@DiveSea</p>
-      </div>
-      <p className="text-xs font-bold text-zinc-800">{price} ETH</p>
-    </div>
-    <button className="w-full mt-3 py-2 bg-black text-white text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-      Place Bid
-    </button>
-  </div>
-);
+import cardImg1 from "../img/cardImg1.png";
+import img1 from "../img/img1.png";
+import cardImg2 from "../img/cardImg2.png";
+import cardImg3 from "../img/cardImg3.png";
+import cardImg4 from "../img/cardImg4.png";
+import cardImg5 from "../img/cardImg5.png";
+import { useTranslation } from "react-i18next";
+import Box from "../Component/Box";
 
-const Discover = () => {
-  // Placeholder data mimicking the Figma grid
-  const nfts = Array(8).fill({
+const nftData = [
+  {
+    id: 1,
     name: "Sun-Glass",
     price: "1.75",
-    img: "https://picsum.photos",
-  });
+    img: cardImg1,
+    time: "07h 09m 12s",
+  },
+  {
+    id: 2,
+    name: "Sun-Glass",
+    price: "1.75",
+    img: img1,
+    time: "07h 09m 12s",
+  },
+  {
+    id: 3,
+    name: "NuEvey",
+    price: "1.25",
+    img: cardImg2,
+    time: "19h 09m 12s",
+  },
+  {
+    id: 4,
+    name: "NuEvey",
+    price: "1.75",
+    img: cardImg3,
+    time: "07h 09m 12s",
+  },
+  {
+    id: 5,
+    name: "NuEvey",
+    price: "1.75",
+    img: cardImg4,
+    time: "07h 09m 12s",
+  },
+  {
+    id: 6,
+    name: "NuEvey",
+    price: "1.75",
+    img: cardImg5,
+    time: "07h 09m 12s",
+  },
+  {
+    id: 7,
+    name: "Sun-Glass",
+    price: "1.75",
+    img: cardImg1,
+    time: "07h 09m 12s",
+  },
+  {
+    id: 8,
+    name: "Sun-Glass",
+    price: "1.75",
+    img: img1,
+    time: "07h 09m 12s",
+  },
+  {
+    id: 9,
+    name: "NuEvey",
+    price: "1.25",
+    img: cardImg2,
+    time: "19h 09m 12s",
+  },
+  {
+    id: 10,
+    name: "NuEvey",
+    price: "1.75",
+    img: cardImg3,
+    time: "07h 09m 12s",
+  },
+  {
+    id: 11,
+    name: "NuEvey",
+    price: "1.75",
+    img: cardImg4,
+    time: "07h 09m 12s",
+  },
+  {
+    id: 12,
+    name: "NuEvey",
+    price: "1.75",
+    img: cardImg5,
+    time: "07h 09m 12s",
+  },
+];
+
+const Discover = () => {
+  const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      {/* 2. Main Content Area */}
+    <div className="min-h-screen bg-gray-50">
+      <div className="flex flex-col py-[20px] items-center justify-center">
+        <div className="text-[50px] font-[700]">{t("discover.dis")}</div>
+        <div className="flex justify-between gap-3">
+          <div className="border rounded-[10px] p-[10px_15px]">
+            {t("discover.t1")}
+          </div>
+          <div className="border rounded-[10px] p-[10px_15px]">
+            {t("discover.t2")}
+          </div>
+          <div className="border rounded-[10px] p-[10px_15px]">
+            {t("discover.t3")}
+          </div>
+        </div>
+      </div>
       <main className="flex-1 p-4 md:p-8 lg:p-12 overflow-y-auto">
-        {/* 3. RESPONSIVE GRID 
-            - 1 column on Mobile
-            - 2 columns on Tablet (md)
-            - 4 columns on Desktop (lg)
-        */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {nfts.map((nft, i) => (
-            <NFTCard key={i} {...nft} />
+          {nftData.map((nft, i) => (
+            <Box key={i} {...nft} />
           ))}
         </div>
       </main>

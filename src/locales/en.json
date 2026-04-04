@@ -45,5 +45,30 @@
     "col": "Collection",
     "pr": "Price",
     "bid": "Place Bid"
+  },
+  "discover": {
+    "dis": "Discover NFT",
+    "t1": "Category",
+    "t2": "Collection",
+    "t3": "Price"
+  },
+  "profile": {
+    "discover": "Discover NFTs",
+    "followers": "Followers",
+    "volume": "Volume",
+    "items": "Items",
+    "bid": "Place Bid"
+  },
+  "com": {
+    "t1": "Join The",
+    "t2": "Comunity",
+    "t3": "Our vibrant community is full of collectors, artists, and enthusiasts who share a passion for one-of-a-kind digital.",
+    "btn": "Join  Our Community"
+  },
+  "sec": {
+    "t1": "Create and Sell NFTs",
+    "t2": "World’s Largest NFT Place",
+    "btn1": "Explore More",
+    "btn2": "Sell Artwork"
   }
 }
