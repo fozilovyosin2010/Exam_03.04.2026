@@ -38,5 +38,12 @@
     "items": "Items",
     "explore": "Explore All",
     "by": "By"
+  },
+  "box": {
+    "title": "Explore Marketplace",
+    "cat": "Category",
+    "col": "Collection",
+    "pr": "Price",
+    "bid": "Place Bid"
   }
 }
