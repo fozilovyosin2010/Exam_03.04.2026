@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useReducer, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import img1S1 from "../img/img1S1.png";
@@ -76,6 +76,59 @@ const Home = () => {
     }
   }
 
+  function reducer(state, action) {}
+
+  const initialValue = {
+    data: [
+      {
+        id: 1,
+        img: cardImg1,
+        name: "Alex Ca.",
+        author: "Alex",
+        vol: "8,456",
+        change: "+ 27.78%",
+        floor: "3,5",
+        owners: "2.2K",
+        items: "500",
+      },
+      {
+        id: 2,
+        img: cardImg2,
+        name: "Alex Ca.",
+        author: "Alex",
+        vol: "4,780",
+        change: "+ 27.78%",
+        floor: "7,9",
+        owners: "3.4K",
+        items: "900",
+      },
+      {
+        id: 3,
+        img: cardImg3,
+        name: "Alex Ca.",
+        author: "Alex",
+        vol: "4,780",
+        change: "+ 27.78%",
+        floor: "7,9",
+        owners: "3.4K",
+        items: "900",
+      },
+      {
+        id: 4,
+        img: cardImg4,
+        name: "Alex Ca.",
+        author: "Alex",
+        vol: "4,780",
+        change: "+ 27.78%",
+        floor: "7,9",
+        owners: "3.4K",
+        items: "900",
+      },
+    ],
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialValue);
+
   return (
     <div>
       <section className="relative max-w-[1440px] pl-[20px] m-[0_auto] mr-0 py-10">
@@ -143,15 +196,13 @@ const Home = () => {
           {/* SLIDER */}
           <Swiper
             onSwiper={(swiper) => (swipeRef.current = swiper)}
-            spaceBetween={30}
-            slidesOffsetBefore={80}
+            spaceBetween={80}
             centeredSlides={false}
             slidesPerView={"auto"}
           >
             {nftData.map((item) => (
               <SwiperSlide key={item.id} className="!w-[260px]">
                 <div className="bg-white p-3 rounded-2xl shadow-sm">
-                  {/* IMAGE */}
                   <div className="relative mb-3">
                     <img
                       src={item.img}
@@ -159,17 +210,15 @@ const Home = () => {
                       className="rounded-xl w-full h-[274px]"
                     />
 
-                    {/* TIME */}
                     <span className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">
                       {item.time}
                     </span>
                   </div>
 
-                  {/* INFO */}
                   <h3 className="font-semibold mb-2">{item.name}</h3>
 
                   <div className="flex items-center justify-between">
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-400 truncate">
                       {t("weekly.currentBid")}
                     </p>
 
@@ -196,6 +245,82 @@ const Home = () => {
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="overflow-x-auto px-[40px]">
+        <div className="overflow-x-auto sec">
+          <table className="w-full">
+            <thead>
+              <tr className="text-gray-400 text-left text-sm border-b border-gray-50">
+                <th className="p-[30px] font-normal">{t("table.col")}</th>
+                <th className="pb-4 font-normal text-right pr-4">
+                  {t("table.vol")}
+                </th>
+                <th className="pb-4 font-normal text-right pr-4 max-sm:hidden">
+                  {t("table.h24")}
+                </th>
+                <th className="pb-4 font-normal text-right pr-4 max-sm:hidden">
+                  {t("table.floor")}
+                </th>
+                <th className="pb-4 font-normal text-right pr-4 max-sm:hidden">
+                  {t("table.owners")}
+                </th>
+                <th className="pb-4 font-normal text-right max-sm:hidden">
+                  {" "}
+                  {t("table.items")}
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {state.data.map((item) => (
+                <tr
+                  key={item.id}
+                  className="group hover:bg-gray-50/50 transition-all"
+                >
+                  {/* Аватарка и Имя */}
+                  <td className="py-5 flex items-center gap-4">
+                    <img
+                      src={item.img}
+                      className={`w-14 h-14 rounded-full bg-gradient-to-br ${item.color} shadow-inner shrink-0`}
+                    />
+                    <div>
+                      <div className="font-bold text-lg text-gray-900 leading-tight">
+                        {item.name}
+                      </div>
+                      <div className="text-sm text-gray-400">
+                        {t.by} {item.author}
+                      </div>
+                    </div>
+                  </td>
+
+                  <td className="py-5 text-right pr-4">
+                    <div className="flex items-center justify-end gap-1 font-bold text-gray-900">
+                      <span className="text-xs">◆</span> {item.vol}
+                    </div>
+                  </td>
+
+                  <td className="max-sm:hidden py-5 text-right pr-4 font-semibold text-emerald-500">
+                    {item.change}
+                  </td>
+
+                  <td className="max-sm:hidden py-5 text-right pr-4">
+                    <div className="flex items-center justify-end gap-1 font-bold text-gray-900">
+                      <span className="text-xs">◆</span> {item.floor}
+                    </div>
+                  </td>
+
+                  <td className="max-sm:hidden py-5 text-right pr-4 font-semibold text-gray-800">
+                    {item.owners}
+                  </td>
+
+                  <td className="max-sm:hidden py-5 text-right font-semibold text-gray-800">
+                    {item.items}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
     </div>

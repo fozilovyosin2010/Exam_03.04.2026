@@ -27,5 +27,16 @@
     "title": "Weekly - Top NFT",
     "currentBid": "Current bid",
     "btn": "Place Bid"
+  },
+  "table": {
+    "title": "Top Collection",
+    "col": "Collection",
+    "vol": "Volume",
+    "h24": "24h %",
+    "floor": "Floor Price",
+    "owners": "Owners",
+    "items": "Items",
+    "explore": "Explore All",
+    "by": "By"
   }
 }

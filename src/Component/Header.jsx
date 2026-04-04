@@ -28,7 +28,7 @@ class Header extends Component {
             <Link to={"/"} className="flex items-center gap-3">
               <img
                 src={Logo}
-                className="w-[53px] h-[53px] max-md:w-[37px] max-md:h-[37px]"
+                className="max-w-[53px] max-h-[53px] max-md:w-[37px] max-md:h-[37px]"
                 alt=""
               />
 
@@ -101,7 +101,7 @@ class Header extends Component {
 
             <Link
               to={"/profile"}
-              className="font-medium text-[16px] bg-[#141416] p-[11px_17px] rounded-xl text-[#fff] max-md:text-[13px] max-md:p-[5px_10px] max-sm:hidden"
+              className="truncate font-medium text-[16px] bg-[#141416] p-[11px_17px] rounded-xl text-[#fff] max-md:text-[13px] max-md:text-[12px] max-md:p-[10px_15px] max-md:p-[5px_10px] max-sm:hidden"
             >
               {t("header.profile")}
             </Link>
